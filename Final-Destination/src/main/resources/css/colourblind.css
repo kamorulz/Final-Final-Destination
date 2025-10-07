@@ -1,0 +1,35 @@
+/* Colourblind Theme */
+.root {
+    -fx-background-color: #ffffff;
+    -fx-font-family: "Josefin Sans", "Jost", sans-serif;
+}
+
+/* Buttons */
+.button {
+    -fx-background-color: #0066cc;   /* blue (safe for most types) */
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+.button:hover {
+    -fx-background-color: #004c99;   /* darker blue */
+}
+
+/* Labels */
+.label {
+    -fx-text-fill: #000000;
+    -fx-font-size: 14px;
+}
+
+/* Sidebar buttons */
+.side-button {
+    -fx-background-color: #ffcc00;   /* yellow for contrast */
+    -fx-text-fill: #000;
+    -fx-font-size: 14px;
+    -fx-padding: 8 12;
+    -fx-background-radius: 6;
+}
+.side-button:hover {
+    -fx-background-color: #ffaa00;   /* darker yellow */
+}

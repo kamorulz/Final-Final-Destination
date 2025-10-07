@@ -1,0 +1,36 @@
+/* Default Theme */
+.root {
+    -fx-background-color: #ffffff;
+    -fx-font-family: "Josefin Sans", "Jost", sans-serif;
+}
+
+/* Buttons */
+.button {
+    -fx-background-color: #ADFFA3;   /* green */
+    -fx-text-fill: #000000;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+.button:hover {
+    -fx-background-color: #FF5BC3;   /* pink */
+    -fx-text-fill: #ffffff;
+}
+
+/* Labels */
+.label {
+    -fx-text-fill: #333333;
+    -fx-font-size: 14px;
+}
+
+/* Sidebar buttons */
+.side-button {
+    -fx-background-color: #40FFE2;
+    -fx-text-fill: #000;
+    -fx-font-size: 14px;
+    -fx-padding: 8 12;
+    -fx-background-radius: 6;
+}
+.side-button:hover {
+    -fx-background-color: #FFDF3D;
+}
