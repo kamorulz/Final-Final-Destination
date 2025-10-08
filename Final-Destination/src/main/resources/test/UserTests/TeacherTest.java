@@ -12,7 +12,7 @@ public class TeacherTest {
     private static final String FIRST_NAME_TWO = "Jane";
     private static final String LAST_NAME = "Daisy";
     private static final String LAST_NAME_TWO = "Parkson";
-    private static final String USERNAME = "msDaisy";
+    private static final String USERNAME = 01;
     private static final String PASSWORD = "CoolMan123";
     private static final String PASSWORD_TWO = "CoolBoy321";
     

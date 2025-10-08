@@ -10,8 +10,8 @@ public class StudentTest {
     private static final String USERNAME = "JBoy66";
     private static final String PASSWORD = "CoolMan123";
     private static final String PASSWORD_TWO = "CoolBoy321";
-    private static final String TEACHER = "msDaisy";
-    private static final String TEACHER_TWO = "mrColby";
+    private static final int TEACHER = 1;
+    private static final String TEACHER_TWO = 2;
     private static final int TOTAL_SCORE = 10;
     private static final int TOTAL_SCORE_TWO = 20;
 

@@ -9,10 +9,10 @@ public class Student extends User {
     private String StudentUsername;
     private String StudentName;
     private String StudentPassword;
-    private String Teacher;
+    private int Teacher;
     private String Level;
 
-    public Student(String user, String pass, String name, String teacher) {
+    public Student(String user, String pass, String name, int teacher) {
         StudentUsername = user;
         StudentPassword = pass;
         StudentName = name;
@@ -20,31 +20,7 @@ public class Student extends User {
     }
 
     public static void addStudent(String username, String password, int teacher, String name) {
-        Connection conn = null;
-        PreparedStatement pstmt = null;
-
-        try {
-            conn = DriverManager.getConnection(
-                    "jdbc:mysql://127.0.0.1:3306/?user=root",
-                    "root",
-                    "CompSci2004%"
-            );
-
-            String addStudentToDB = "INSERT INTO `final_destination`.`Students` VALUES (?, ?, ?, ?)";
-
-            pstmt = conn.prepareStatement(addStudentToDB);
-
-            pstmt.setString(1, username);
-            pstmt.setString(2, password);
-            pstmt.setInt(3, teacher);
-            pstmt.setString(4, name);
-
-            pstmt.executeUpdate();
-
-            System.out.println("Created account");
-        } catch (Exception e) {
-            System.out.println("Exception: " + e + "has occurred.");
-        }
+        MySQL.addStudentToDB(MySQL.establishConnection(), username, password, teacher, name);
     }
     public static void studentLogin(String username, String password) {
         Connection conn = null;
@@ -101,11 +77,11 @@ public class Student extends User {
         StudentPassword = passwordTwo;
     }
 
-    public String getTeacher() {
+    public int getTeacher() {
         return Teacher;
     }
 
-    public void setTeacher(String teacherTwo) {
+    public void setTeacher(int teacherTwo) {
         Teacher = teacherTwo;
     }
 

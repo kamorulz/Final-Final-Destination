@@ -17,7 +17,7 @@ public class isStudentOnLevelTest {
     @BeforeEach
     public void setUp(){
         //create a test student
-        student = new Student("Billy32", "BillyIsCool", "Billy", "msDaisy");
+        student = new Student("Billy32", "BillyIsCool", "Billy", 1);
         //create a test Level
         level = new Level("Worker Ant", MIN_SCORE, MAX_SCORE,"/this/image/path");
 

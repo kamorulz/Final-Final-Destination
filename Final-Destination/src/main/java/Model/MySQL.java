@@ -11,6 +11,7 @@ import java.util.ListIterator;
 public class MySQL {
 
     // Check connection to the database
+
     public static Connection establishConnection() {
         Connection c = null;
         try {
@@ -176,6 +177,27 @@ public class MySQL {
         return userData;
     }
 
+    public static void addStudentToDB(Connection conn, String username, String password, int teacher, String name) {
+        PreparedStatement pstmt = null;
+
+        try {
+            String addStudentToDB = "INSERT INTO `final_destination`.`Students` VALUES (?, ?, ?, ?)";
+
+            pstmt = conn.prepareStatement(addStudentToDB);
+
+            pstmt.setString(1, username);
+            pstmt.setString(2, password);
+            pstmt.setInt(3, teacher);
+            pstmt.setString(4, name);
+
+            pstmt.executeUpdate();
+
+            System.out.println("Created account");
+        } catch (Exception e) {
+            System.out.println("Exception: " + e + "has occurred.");
+        }
+    }
+
     public static List<String> getTeacherFromDB(Connection conn, String username) {
         PreparedStatement pstmt = null;
         ResultSet rs = null;
@@ -322,6 +344,178 @@ public class MySQL {
         }
         catch (Exception e) {
             System.out.println("Exception: " + e + "has occurred.");
+        }
+        return userData;
+    }
+
+    public static void addTeacherToDB(Connection conn, int username, String password, String fname, String lname) {
+        PreparedStatement pstmt = null;
+        try {
+
+            String addTeacherToDB = "INSERT INTO `final_destination`.`teachers` VALUES (?, ?, ?, ?)";
+
+            pstmt = conn.prepareStatement(addTeacherToDB);
+
+            pstmt.setInt(1, username);
+            pstmt.setString(2, password);
+            pstmt.setString(3, fname);
+            pstmt.setString(3, lname);
+
+            pstmt.executeUpdate();
+
+        } catch (Exception e) {
+            System.out.println("Exception: " + e + "has occurred.");
+        }
+    }
+
+    public static List<String> getTeachersStudents(Connection conn, int teacher) {
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        List<String> userData = new List<String>() {
+            @Override
+            public int size() {
+                return 0;
+            }
+
+            @Override
+            public boolean isEmpty() {
+                return false;
+            }
+
+            @Override
+            public boolean contains(Object o) {
+                return false;
+            }
+
+            @NotNull
+            @Override
+            public Iterator<String> iterator() {
+                return null;
+            }
+
+            @NotNull
+            @Override
+            public Object[] toArray() {
+                return new Object[0];
+            }
+
+            @NotNull
+            @Override
+            public <T> T[] toArray(@NotNull T[] a) {
+                return null;
+            }
+
+            @Override
+            public boolean add(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean remove(Object o) {
+                return false;
+            }
+
+            @Override
+            public boolean containsAll(@NotNull Collection<?> c) {
+                return false;
+            }
+
+            @Override
+            public boolean addAll(@NotNull Collection<? extends String> c) {
+                return false;
+            }
+
+            @Override
+            public boolean addAll(int index, @NotNull Collection<? extends String> c) {
+                return false;
+            }
+
+            @Override
+            public boolean removeAll(@NotNull Collection<?> c) {
+                return false;
+            }
+
+            @Override
+            public boolean retainAll(@NotNull Collection<?> c) {
+                return false;
+            }
+
+            @Override
+            public void clear() {
+
+            }
+
+            @Override
+            public String get(int index) {
+                return "";
+            }
+
+            @Override
+            public String set(int index, String element) {
+                return "";
+            }
+
+            @Override
+            public void add(int index, String element) {
+
+            }
+
+            @Override
+            public String remove(int index) {
+                return "";
+            }
+
+            @Override
+            public int indexOf(Object o) {
+                return 0;
+            }
+
+            @Override
+            public int lastIndexOf(Object o) {
+                return 0;
+            }
+
+            @NotNull
+            @Override
+            public ListIterator<String> listIterator() {
+                return null;
+            }
+
+            @NotNull
+            @Override
+            public ListIterator<String> listIterator(int index) {
+                return null;
+            }
+
+            @NotNull
+            @Override
+            public List<String> subList(int fromIndex, int toIndex) {
+                return List.of();
+            }
+        };
+        try {
+            String getAllStudents = "SELECT * FROM `final_destination`.`Students` WHERE teacher = ?";
+            stmt = conn.prepareStatement(getAllStudents);
+            stmt.setInt(1, teacher);
+
+            rs = stmt.executeQuery(getAllStudents);
+
+            ResultSetMetaData rsmd = rs.getMetaData();
+
+            int columnCount = rsmd.getColumnCount();
+
+            if (rs.next()) {
+                for (int i = 1; i <= (columnCount-1); i++) {
+                    userData.add(rs.getString(i));
+                }
+            } else {
+                throw new UserNotFoundException("No students found");
+            }
+
+
+        } catch (Exception e) {
+            throw new UserNotFoundException("No students found");
         }
         return userData;
     }

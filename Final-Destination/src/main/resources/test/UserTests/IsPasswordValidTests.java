@@ -20,7 +20,7 @@ public class IsPasswordValidTests {
     private Student student;
     @BeforeEach
     public void setUp(){
-        student = new Student("JBoy66", "CoolMan123", "James","msDaisy");
+        student = new Student("JBoy66", "CoolMan123", "James", 1);
     }
 
     @Test
