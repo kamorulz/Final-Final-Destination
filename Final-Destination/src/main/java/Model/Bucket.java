@@ -12,8 +12,8 @@ public class Bucket {
     private List<Word> wordsInBucket;
 
     public Bucket(int bucketId, String bucketName, int gameId, String imagePath){
-        this.bucketID=bucketId;
-        this.bucketName=bucketName;
+        this.bucketID = bucketId;
+        this.bucketName = bucketName;
         this.imagePath = imagePath;
         this.gameID = gameId;
         wordsInBucket = new ArrayList<>();

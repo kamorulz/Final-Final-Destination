@@ -58,11 +58,13 @@ public class Student extends User {
     }
 
     public String getFirstName() {
+
         return StudentName;
     }
 
-    public void setFirstName(String firstNameTwo) {
-        StudentName = firstNameTwo;
+    public void setFirstName(String firstName) {
+
+        StudentName = firstName;
     }
 
     public String getUsername() {
@@ -85,7 +87,7 @@ public class Student extends User {
         Teacher = teacherTwo;
     }
 
-    public void setTotalScore(int minScore) {//to do
+    public void setTotalScore(int score) {//to do
     }
 
     public int getTotalScore() {return 0;//dummy value

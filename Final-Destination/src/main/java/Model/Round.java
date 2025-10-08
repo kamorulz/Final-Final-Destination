@@ -63,7 +63,7 @@ public class Round{
     }
 
     /**
-     * Getter for score variable.
+     * Getter for score variable. Current score - updates each round.
      * @return the students current score
      */
     public int getScore() {
